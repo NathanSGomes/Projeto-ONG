@@ -85,6 +85,13 @@ nav {
     z-index: 9;
 }
 
+/* Logo invisível quando a classe 'hidden' é adicionada */
+.logo.hidden img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    /* Transição suave */
+}
+
 .nav__bar {
     padding: 1rem;
     display: flex;
@@ -94,14 +101,16 @@ nav {
 }
 
 .nav__menu__btn {
-    font-size: 1.5rem;
-    color: var(--white);
+    font-size: 2.5rem;
+    color: var(--f-color-hover);
     cursor: pointer;
 }
 
 .nav__links {
     list-style: none;
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     padding: 2rem;
     display: flex;
@@ -110,12 +119,24 @@ nav {
     gap: 2rem;
     background-color: var(--f-color);
     transform: translateY(-100%);
-    transition: 0.5s;
+    transition: transform 0.5s ease;
     z-index: -1;
 }
 
 .nav__links.open {
     transform: translateY(0);
+}
+
+#nav-links a {
+    display: none;
+}
+
+#nav-links.open a {
+    display: block;
+}
+
+#nav-links a {
+    transition: opacity 0.5s ease;
 }
 
 .nav__links a {
@@ -351,6 +372,10 @@ nav {
 @media (width > 576px) {
     .footer__container {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #nav-links a {
+        display: block;
     }
 }
 

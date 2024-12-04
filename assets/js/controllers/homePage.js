@@ -6,12 +6,12 @@ menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("open");
 
   const isOpen = navLinks.classList.contains("open");
-  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+  menuBtnIcon.setAttribute("class", isOpen ? "bx bx-x" : "bx bx-menu");
 });
 
 navLinks.addEventListener("click", () => {
   navLinks.classList.remove("open");
-  menuBtnIcon.setAttribute("class", "ri-menu-line");
+  menuBtnIcon.setAttribute("class", "bx bx-menu");
 });
 
 const scrollRevealOption = {
@@ -19,6 +19,19 @@ const scrollRevealOption = {
   origin: "bottom",
   duration: 1000,
 };
+
+const logo = document.querySelector('.logo');
+
+window.addEventListener('scroll', () => {
+
+  if (window.scrollY > 0) {
+    logo.classList.add('hidden');
+  } else {
+    logo.classList.remove('hidden'); 
+  }
+});
+
+
 
 // header container
 ScrollReveal().reveal(".header__container p", {
